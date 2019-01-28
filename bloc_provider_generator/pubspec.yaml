@@ -1,8 +1,8 @@
 name: bloc_provider_generator
 description: A new Flutter package project.
-version: 0.0.1
-author:
-homepage:
+version: 0.1.0
+author: Vinícius Sossella <viniciussossella@gmail.com>
+homepage: https://github.com/ViniciusSossela/dash
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
@@ -11,7 +11,7 @@ dependencies:
   build: ^1.1.0
   source_gen: ^0.9.4
   code_builder: ^3.1.3
-  bloc_provider:    
+  dash:    
     path: ../bloc_provider/
 
 dev_dependencies:

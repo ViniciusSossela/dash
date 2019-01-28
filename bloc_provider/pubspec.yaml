@@ -1,8 +1,8 @@
-name: bloc_provider
+name: dash
 description: A new Flutter package project.
-version: 0.0.1
-author:
-homepage:
+version: 0.1.0
+author: Vinícius Sossella <viniciussossella@gmail.com>
+homepage: https://github.com/ViniciusSossela/dash
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"

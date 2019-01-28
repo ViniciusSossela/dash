@@ -22,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
-  bloc_provider:
-    dependency: "direct main"
-    description:
-      path: "../bloc_provider"
-      relative: true
-    source: path
-    version: "0.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -141,6 +134,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.2"
+  dash:
+    dependency: "direct main"
+    description:
+      path: "../bloc_provider"
+      relative: true
+    source: path
+    version: "0.1.0"
   fixnum:
     dependency: transitive
     description:

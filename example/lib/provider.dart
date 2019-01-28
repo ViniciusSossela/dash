@@ -1,14 +1,13 @@
-import 'package:bloc_provider/bloc_provider.dart';
+import 'package:dash/bloc_provider.dart';
 
 part 'provider.g.dart';
+
 @BlocProvider.factory(MyBloc1)
 @BlocProvider.factory(MyBloc2)
-abstract class Provider {
-}
+abstract class Provider {}
 
 class MyBloc1 extends Bloc {
   static final String key = '';
-  
 
   @override
   bool disposable() {
@@ -20,15 +19,12 @@ class MyBloc1 extends Bloc {
   dispose() {
     // TODO: implement dispose
     return null;
-  }  
-
+  }
 
   static Bloc instance() {
     // TODO: implement instance
     return null;
   }
-
-  
 }
 
 class MyBloc2 extends Bloc {
@@ -36,7 +32,6 @@ class MyBloc2 extends Bloc {
 
   @override
   bool disposable() {
-    
     // TODO: implement disposable
     return null;
   }
@@ -51,6 +46,4 @@ class MyBloc2 extends Bloc {
     // TODO: implement instance
     return null;
   }
-
-
 }
