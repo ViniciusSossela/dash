@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      bloc_provider_generator|bloc_provider:
+        enabled: true
+
+builders:
+  bloc_provider:
+    target: ":bloc_provider_generator"
+    import: "package:bloc_provider_generator/builder.dart"
+    builder_factories: ["blocProvider"]
+    build_extensions: {".dart": [".bloc_provider.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
