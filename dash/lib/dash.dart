@@ -1,4 +1,4 @@
-library bloc_provider;
+library dash;
 
 export 'src/annotations.dart';
 // export 'src/bloc.dart';

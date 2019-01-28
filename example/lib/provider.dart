@@ -1,4 +1,4 @@
-import 'package:dash/bloc_provider.dart';
+import 'package:dash/dash.dart';
 
 part 'provider.g.dart';
 

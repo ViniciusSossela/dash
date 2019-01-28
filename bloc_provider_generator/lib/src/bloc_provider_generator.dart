@@ -7,7 +7,7 @@ import 'package:build/src/builder/build_step.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
-import 'package:dash/bloc_provider.dart';
+import 'package:dash/dash.dart';
 import 'package:source_gen/source_gen.dart';
 
 const TypeChecker _blocProviderTypeChecker =

@@ -137,7 +137,7 @@ packages:
   dash:
     dependency: "direct main"
     description:
-      path: "../bloc_provider"
+      path: "../dash"
       relative: true
     source: path
     version: "0.1.0"
