@@ -7,43 +7,41 @@ part 'provider.g.dart';
 abstract class Provider {}
 
 class MyBloc1 extends Bloc {
-  static final String key = '';
+  static final String key = 'MyBloc1';
 
   @override
   bool disposable() {
-    // TODO: implement disposable
-    return null;
+    return true;
   }
 
   @override
   dispose() {
-    // TODO: implement dispose
-    return null;
+    //dispose all streams
   }
 
   static Bloc instance() {
-    // TODO: implement instance
-    return null;
+    return MyBloc1();
   }
 }
 
 class MyBloc2 extends Bloc {
-  static final String key = '';
+  static final String key = 'MyBloc2';
+
+  myFunction() {
+    print('MyBloc2 myFunction called');
+  }
 
   @override
   bool disposable() {
-    // TODO: implement disposable
-    return null;
+    return true;
   }
 
   @override
   dispose() {
-    // TODO: implement dispose
-    return null;
+    //dispose all streams
   }
 
   static Bloc instance() {
-    // TODO: implement instance
-    return null;
+    return MyBloc2();
   }
 }

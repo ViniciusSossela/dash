@@ -1,4 +1,4 @@
-// class Bloc {
-//   dispose(){}
-//   bool disposable(){}
-// }
+abstract class Bloc {
+  dispose();
+  bool disposable();
+}

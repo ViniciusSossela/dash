@@ -80,6 +80,6 @@ class BlocProviderGenerator extends Generator {
     final DartType type = registerObject.getField('type').toTypeValue();
 
     return Code(
-        'case $type: { return BlocProviderCache.getBlocInstance(keepBlocs, $type.key, () => $type.instance()); }');
+        'case $type: { return BlocCache.getBlocInstance(keepBlocs, $type.key, () => $type.instance()); }');
   }
 }

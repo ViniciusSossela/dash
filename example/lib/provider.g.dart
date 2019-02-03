@@ -11,12 +11,12 @@ class $Provider extends Provider {
     switch (T) {
       case MyBloc1:
         {
-          return BlocProviderCache.getBlocInstance(
+          return BlocCache.getBlocInstance(
               keepBlocs, MyBloc1.key, () => MyBloc1.instance());
         }
       case MyBloc2:
         {
-          return BlocProviderCache.getBlocInstance(
+          return BlocCache.getBlocInstance(
               keepBlocs, MyBloc2.key, () => MyBloc2.instance());
         }
     }
