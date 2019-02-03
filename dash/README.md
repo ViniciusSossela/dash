@@ -1,6 +1,7 @@
 # Dash
 
 ![Logo](https://raw.githubusercontent.com/ViniciusSossela/dash/master/dash/img/lib_logo.png)
+
 Dash is a simple but efficient library that provides BloCs class without headaches.
 
 **IMPORTANT: Dart2 is required to use this package.**
