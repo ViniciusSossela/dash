@@ -63,7 +63,7 @@ class MySampleBloc extends Bloc {
   }
 
   static Bloc instance() {
-    return MyBloc2();
+    return MySampleBloc();
   }
 }
 
