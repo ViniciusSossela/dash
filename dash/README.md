@@ -1,6 +1,6 @@
 # Dash
 
-![Logo](https://raw.githubusercontent.com/ViniciusSossela/dash/master/dash/img/lib_logo.png)
+![Logo](https://raw.githubusercontent.com/ViniciusSossela/dash/master/dash/img/logo_dash.png)
 
 Dash is a simple but efficient library that provides BloCs class without headaches.
 
