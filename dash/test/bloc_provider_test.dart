@@ -14,27 +14,27 @@ void main() {
 
   test('BlocSampleDisposable should not be null', () {
     BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        [], BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
 
     expect(blocSampleDisposable != null, true);
   });
 
   test('BlocSampleDisposable should be the same', () {
     BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        [], BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
 
     BlocSampleDisposable blocSampleDisposable2 = BlocCache.getBlocInstance(
-        [], BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
 
     expect(blocSampleDisposable, blocSampleDisposable2);
   });
 
   test('BlocSampleDisposable should not be disposed', () {
     BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        [], BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
 
     BlocSampleDisposable blocSampleDisposable2 = BlocCache.getBlocInstance(
-        [], BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
 
     expect(blocSampleDisposable.test, 'BlocSampleDisposable');
     expect(blocSampleDisposable2.test, 'BlocSampleDisposable');
@@ -42,12 +42,12 @@ void main() {
 
   test('BlocSampleDisposable should be disposed', () {
     BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        [], BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
 
     BlocSampleNotDisposable blocSampleNotDisposable = BlocCache.getBlocInstance(
-        [],
-        BlocSampleNotDisposable.key,
-        () => BlocSampleNotDisposable.instance());
+        BlocSampleNotDisposable.key, () => BlocSampleNotDisposable.instance());
+
+    BlocCache.dispose(BlocSampleDisposable.key);
 
     expect(blocSampleDisposable.test, '');
     expect(blocSampleNotDisposable.test, 'BlocSampleNotDisposable');
@@ -55,12 +55,10 @@ void main() {
 
   test('BlocSampleNotDisposable should not be disposed', () {
     BlocSampleNotDisposable blocSampleNotDisposable = BlocCache.getBlocInstance(
-        [],
-        BlocSampleNotDisposable.key,
-        () => BlocSampleNotDisposable.instance());
+        BlocSampleNotDisposable.key, () => BlocSampleNotDisposable.instance());
 
     BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        [], BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
 
     expect(blocSampleNotDisposable.test, 'BlocSampleNotDisposable');
     expect(blocSampleDisposable.test, 'BlocSampleDisposable');
@@ -68,12 +66,10 @@ void main() {
 
   test('KeepBloc should not be disposed', () {
     KeepBloc keepBloc =
-        BlocCache.getBlocInstance([], KeepBloc.key, () => KeepBloc.instance());
+        BlocCache.getBlocInstance(KeepBloc.key, () => KeepBloc.instance());
 
     BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        [KeepBloc.key],
-        BlocSampleDisposable.key,
-        () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
 
     expect(keepBloc.test, 'KeepBloc');
     expect(blocSampleDisposable.test, 'BlocSampleDisposable');
@@ -81,10 +77,12 @@ void main() {
 
   test('KeepBloc should be disposed', () {
     KeepBloc keepBloc =
-        BlocCache.getBlocInstance([], KeepBloc.key, () => KeepBloc.instance());
+        BlocCache.getBlocInstance(KeepBloc.key, () => KeepBloc.instance());
 
     BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        [], BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+        BlocSampleDisposable.key, () => BlocSampleDisposable.instance());
+
+    BlocCache.dispose(KeepBloc.key);
 
     expect(keepBloc.test, '');
     expect(blocSampleDisposable.test, 'BlocSampleDisposable');

@@ -36,10 +36,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void dispose() {
+    $Provider.dispose<MyBloc2>();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var _bloc = $Provider.of<MyBloc2>();
     _bloc.myFunction();
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),

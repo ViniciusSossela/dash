@@ -12,7 +12,7 @@ class Provider {
       case BlocSample:
         {
           return BlocCache.getBlocInstance(
-              keepBlocs, BlocSample.key, () => BlocSample.instance());
+              BlocSample.key, () => BlocSample.instance());
         }
     }
     return null;

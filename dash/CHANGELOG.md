@@ -1,4 +1,3 @@
-## [0.2.0] - February second 2019.
+## [0.4.0] - February second 2019.
 
-* Added unit test.
-* Clean code.
+* Changed the way of how blocs are disposed

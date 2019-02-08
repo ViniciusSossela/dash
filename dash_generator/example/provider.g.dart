@@ -7,14 +7,24 @@ part of 'provider.dart';
 // **************************************************************************
 
 class $Provider extends Provider {
-  static T of<T extends Bloc>([List<String> keepBlocs = const []]) {
+  static T of<T extends Bloc>() {
     switch (T) {
       case BlocExample:
         {
           return BlocCache.getBlocInstance(
-              keepBlocs, BlocExample.key, () => BlocExample.instance());
+              BlocExample.key, () => BlocExample.instance());
         }
     }
     return null;
+  }
+
+  static void dispose<T extends Bloc>() {
+    switch (T) {
+      case BlocExample:
+        {
+          BlocCache.dispose(BlocExample.key);
+          break;
+        }
+    }
   }
 }

@@ -13,26 +13,20 @@ class BlocCache {
 
   BlocCache._internal();
 
-  static Bloc getBlocInstance(
-      List<String> keepBlocs, String blocKey, Function instance) {
+  static Bloc getBlocInstance(String blocKey, Function instance) {
     var bloc = BlocCache._singleton.blocs[blocKey];
-    List<String> listKeepBlocs;
-    if (!keepBlocs.contains(blocKey))
-      listKeepBlocs = List.from(keepBlocs)..add(blocKey);
 
     if (bloc != null) {
-      _disposeAllAndKeep(listKeepBlocs);
       return bloc;
     }
 
     bloc = instance();
     BlocCache._singleton.blocs[blocKey] = bloc;
-    _disposeAllAndKeep(listKeepBlocs);
 
     return bloc;
   }
 
-  static _disposeAllAndKeep(List<String> blocKeys) async {
+  static disposeAllAndKeep(List<String> blocKeys) async {
     BlocCache._singleton.blocs.forEach((key, bloc) {
       if ((bloc.disposable() == null || bloc.disposable()) &&
           !blocKeys.contains(key)) bloc.dispose();
@@ -41,5 +35,21 @@ class BlocCache {
     BlocCache._singleton.blocs.removeWhere((key, bloc) =>
         (bloc.disposable() == null || bloc.disposable()) &&
         !blocKeys.contains(key));
+  }
+
+  static dispose(String blocKey) async {
+    BlocCache._singleton.blocs[blocKey].dispose();
+
+    BlocCache._singleton.blocs.removeWhere((key, bloc) =>
+        (bloc.disposable() == null || bloc.disposable()) && blocKey == key);
+  }
+
+  static disposeAll() async {
+    BlocCache._singleton.blocs.forEach((key, bloc) {
+      if ((bloc.disposable() == null || bloc.disposable())) bloc.dispose();
+    });
+
+    BlocCache._singleton.blocs.removeWhere(
+        (key, bloc) => (bloc.disposable() == null || bloc.disposable()));
   }
 }

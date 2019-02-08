@@ -17,6 +17,7 @@ dependencies:
     sdk: flutter
   dash:
     path: ../dash/
+
      
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -28,6 +29,7 @@ dev_dependencies:
     sdk: flutter
   dash_generator:
     path: ../dash_generator/
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

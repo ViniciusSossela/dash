@@ -42,16 +42,12 @@ class BlocProviderGenerator extends Generator {
     return Class((cb) => cb
       ..name = '\$${blocProvider.name}'
       ..extend = refer(blocProvider.name)
-      ..methods.add(_getOfMethod(blocProvider)));
+      ..methods.addAll(
+          [_getOfMethod(blocProvider), _getDisposeMethod(blocProvider)]));
   }
 
   Method _getOfMethod(ClassElement blocProvider) {
     var paramters = ListBuilder<Parameter>();
-
-    paramters.add(Parameter((param) => param
-      ..name = 'keepBlocs'
-      ..type = Reference('List<String>')
-      ..defaultTo = Code('const []')));
 
     return Method((method) => method
       ..name = 'of<T extends Bloc>'
@@ -80,6 +76,36 @@ class BlocProviderGenerator extends Generator {
     final DartType type = registerObject.getField('type').toTypeValue();
 
     return Code(
-        'case $type: { return BlocCache.getBlocInstance(keepBlocs, $type.key, () => $type.instance()); }');
+        'case $type: { return BlocCache.getBlocInstance($type.key, () => $type.instance()); }');
+  }
+
+  Method _getDisposeMethod(ClassElement blocProvider) {
+    var paramters = ListBuilder<Parameter>();
+
+    return Method.returnsVoid((method) => method
+      ..name = 'dispose<T extends Bloc>'
+      ..static = true
+      ..optionalParameters = paramters
+      ..body = Block((bb) => bb
+        ..statements.add(Code('switch (T) {'))
+        ..statements.addAll(_generateSwitchCasesOfDispose(blocProvider))
+        ..statements.add(Code('}'))));
+  }
+
+  List<Code> _generateSwitchCasesOfDispose(ClassElement blocProvider) {
+    return _blocProviderTypeChecker
+        .annotationsOfExact(blocProvider)
+        .map((a) => _generateCasesOfDispose(
+            AnnotatedElement(ConstantReader(a), blocProvider)))
+        .toList();
+  }
+
+  Code _generateCasesOfDispose(AnnotatedElement annotatedMethod) {
+    final ConstantReader annotation = annotatedMethod.annotation;
+    final DartObject registerObject = annotation.objectValue;
+
+    final DartType type = registerObject.getField('type').toTypeValue();
+
+    return Code('case $type: { BlocCache.dispose($type.key); break;}');
   }
 }
