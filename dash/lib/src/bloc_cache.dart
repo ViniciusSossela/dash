@@ -38,7 +38,7 @@ class BlocCache {
   }
 
   static dispose(String blocKey) async {
-    BlocCache._singleton.blocs[blocKey].dispose();
+    BlocCache._singleton.blocs[blocKey]?.dispose();
 
     BlocCache._singleton.blocs.removeWhere((key, bloc) =>
         (bloc.disposable() == null || bloc.disposable()) && blocKey == key);
