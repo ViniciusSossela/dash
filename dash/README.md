@@ -53,11 +53,6 @@ class MySampleBloc extends Bloc {
   static final String key = 'MySampleBloc-uid';
 
   @override
-  bool disposable() {
-    return true;
-  }
-
-  @override
   dispose() {
     //close all streams
   }
@@ -69,11 +64,6 @@ class MySampleBloc extends Bloc {
 
 class MyOtherBloc extends Bloc {
   static final String key = 'MyOtherBloc-uid';
-
-  @override
-  bool disposable() {
-    return true;
-  }
 
   @override
   dispose() {

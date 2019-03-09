@@ -96,11 +96,6 @@ class BlocSampleDisposable extends Bloc {
   static BlocSampleDisposable instance() => BlocSampleDisposable();
 
   @override
-  bool disposable() {
-    return true;
-  }
-
-  @override
   dispose() {
     test = '';
   }
@@ -113,11 +108,6 @@ class BlocSampleNotDisposable extends Bloc {
   static BlocSampleNotDisposable instance() => BlocSampleNotDisposable();
 
   @override
-  bool disposable() {
-    return false;
-  }
-
-  @override
   dispose() {
     test = '';
   }
@@ -128,11 +118,6 @@ class KeepBloc extends Bloc {
   static final String key = 'KeepBloc';
 
   static KeepBloc instance() => KeepBloc();
-
-  @override
-  bool disposable() {
-    return true;
-  }
 
   @override
   dispose() {

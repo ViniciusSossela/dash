@@ -43,7 +43,7 @@ abstract class Provider {}
 ```
 
 
-2 - Extends all your bloc class from `Bloc`. It will allow you to override `disposable` and `dispose` method.
+2 - Extends all your bloc class from `Bloc`. It will allow you to override `dispose` method.
 
 **IMPORTANT: In order to cache bloc class it must has an unique ID that is represented by a static string property named as `key`. Also an `instance()` function that returns the instance of the bloc class as show bellow is necessary.**
 
@@ -51,11 +51,6 @@ abstract class Provider {}
 ```dart
 class MySampleBloc extends Bloc {
   static final String key = 'MySampleBloc-uid';
-
-  @override
-  bool disposable() {
-    return true;
-  }
 
   @override
   dispose() {
@@ -69,11 +64,6 @@ class MySampleBloc extends Bloc {
 
 class MyOtherBloc extends Bloc {
   static final String key = 'MyOtherBloc-uid';
-
-  @override
-  bool disposable() {
-    return true;
-  }
 
   @override
   dispose() {

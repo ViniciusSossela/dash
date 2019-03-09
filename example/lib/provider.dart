@@ -10,11 +10,6 @@ class MyBloc1 extends Bloc {
   static final String key = 'MyBloc1';
 
   @override
-  bool disposable() {
-    return true;
-  }
-
-  @override
   dispose() {
     //dispose all streams
   }
@@ -29,11 +24,6 @@ class MyBloc2 extends Bloc {
 
   myFunction() {
     print('MyBloc2 myFunction called');
-  }
-
-  @override
-  bool disposable() {
-    return true;
   }
 
   @override

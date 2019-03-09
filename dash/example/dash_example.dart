@@ -26,11 +26,6 @@ class BlocSample extends Bloc {
   static BlocSample instance() => BlocSample();
 
   @override
-  bool disposable() {
-    return false;
-  }
-
-  @override
   dispose() {
     //close streams
   }

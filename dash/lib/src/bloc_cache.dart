@@ -28,28 +28,24 @@ class BlocCache {
 
   static disposeAllAndKeep(List<String> blocKeys) async {
     BlocCache._singleton.blocs.forEach((key, bloc) {
-      if ((bloc.disposable() == null || bloc.disposable()) &&
-          !blocKeys.contains(key)) bloc.dispose();
+      if (!blocKeys.contains(key)) bloc.dispose();
     });
 
-    BlocCache._singleton.blocs.removeWhere((key, bloc) =>
-        (bloc.disposable() == null || bloc.disposable()) &&
-        !blocKeys.contains(key));
+    BlocCache._singleton.blocs
+        .removeWhere((key, bloc) => !blocKeys.contains(key));
   }
 
   static dispose(String blocKey) async {
     BlocCache._singleton.blocs[blocKey]?.dispose();
 
-    BlocCache._singleton.blocs.removeWhere((key, bloc) =>
-        (bloc.disposable() == null || bloc.disposable()) && blocKey == key);
+    BlocCache._singleton.blocs.removeWhere((key, bloc) => blocKey == key);
   }
 
   static disposeAll() async {
     BlocCache._singleton.blocs.forEach((key, bloc) {
-      if ((bloc.disposable() == null || bloc.disposable())) bloc.dispose();
+      bloc.dispose();
     });
 
-    BlocCache._singleton.blocs.removeWhere(
-        (key, bloc) => (bloc.disposable() == null || bloc.disposable()));
+    BlocCache._singleton.blocs.clear();
   }
 }
