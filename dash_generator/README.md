@@ -45,7 +45,7 @@ abstract class Provider {}
 
 2 - Extends all your bloc class from `Bloc`. It will allow you to override `dispose` method.
 
-**IMPORTANT: In order to cache bloc class it must has an unique ID that is represented by a static string property named as `key`. Also an `instance()` function that returns the instance of the bloc class as show bellow is necessary.**
+**IMPORTANT: All bloc class must has an `instance()` function that returns the instance of the bloc class as bellow.**
 
 
 ```dart
@@ -56,9 +56,8 @@ class MySampleBloc extends Bloc {
     //close all streams
   }
 
-  static Bloc instance() {
-    return MySampleBloc();
-  }
+  static Bloc instance() => MySampleBloc();
+  
 }
 
 class MyOtherBloc extends Bloc {
@@ -68,9 +67,7 @@ class MyOtherBloc extends Bloc {
     //close all streams
   }
 
-  static Bloc instance() {
-    return MyOtherBloc();
-  }
+  static Bloc instance() => MyOtherBloc();
 }
 ```
 
