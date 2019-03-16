@@ -12,7 +12,7 @@ class $Provider extends Provider {
       case BlocExample:
         {
           return BlocCache.getBlocInstance(
-              BlocExample.key, () => BlocExample.instance());
+              "BlocExample", () => BlocExample.instance());
         }
     }
     return null;
@@ -22,7 +22,7 @@ class $Provider extends Provider {
     switch (T) {
       case BlocExample:
         {
-          BlocCache.dispose(BlocExample.key);
+          BlocCache.dispose("BlocExample");
           break;
         }
     }

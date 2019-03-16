@@ -76,7 +76,7 @@ class BlocProviderGenerator extends Generator {
     final DartType type = registerObject.getField('type').toTypeValue();
 
     return Code(
-        'case $type: { return BlocCache.getBlocInstance($type.key, () => $type.instance()); }');
+        'case $type: { return BlocCache.getBlocInstance("${type.name}", () => $type.instance()); }');
   }
 
   Method _getDisposeMethod(ClassElement blocProvider) {
@@ -106,6 +106,6 @@ class BlocProviderGenerator extends Generator {
 
     final DartType type = registerObject.getField('type').toTypeValue();
 
-    return Code('case $type: { BlocCache.dispose($type.key); break;}');
+    return Code('case $type: { BlocCache.dispose("${type.name}"); break;}');
   }
 }

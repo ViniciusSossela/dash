@@ -12,7 +12,7 @@ class Provider {
       case BlocSample:
         {
           return BlocCache.getBlocInstance(
-              BlocSample.key, () => BlocSample.instance());
+              'BlocSample', () => BlocSample.instance());
         }
     }
     return null;
@@ -21,8 +21,7 @@ class Provider {
 
 class BlocSample extends Bloc {
   String test = 'BlocSample';
-  static final String key = 'BlocSample';
-
+  
   static BlocSample instance() => BlocSample();
 
   @override

@@ -4,5 +4,5 @@ import 'bloc_example.dart';
 
 part 'provider.g.dart';
 
-@BlocProvider.factory(BlocExample)
+@BlocProvider.register(BlocExample)
 abstract class Provider {}

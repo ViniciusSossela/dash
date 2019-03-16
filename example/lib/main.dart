@@ -1,3 +1,4 @@
+import 'package:example/mybloc2.dart';
 import 'package:example/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +37,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    MyBloc2 _bloc = $Provider.of<MyBloc2>();
+    _bloc.loadInitialData();
+    super.initState();
+  }
+
+  @override
   void dispose() {
     $Provider.dispose<MyBloc2>();
     super.dispose();
@@ -43,9 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var _bloc = $Provider.of<MyBloc2>();
-    _bloc.myFunction();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),

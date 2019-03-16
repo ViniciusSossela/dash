@@ -36,8 +36,8 @@ import 'package:dash/dash.dart';
 
 part 'provider.g.dart';
 
-@BlocProvider.factory(MySampleBloc)
-@BlocProvider.factory(MyOtherBloc)
+@BlocProvider.register(MySampleBloc)
+@BlocProvider.register(MyOtherBloc)
 abstract class Provider {}
 
 ```
@@ -50,7 +50,6 @@ abstract class Provider {}
 
 ```dart
 class MySampleBloc extends Bloc {
-  static final String key = 'MySampleBloc-uid';
 
   @override
   dispose() {
@@ -63,7 +62,6 @@ class MySampleBloc extends Bloc {
 }
 
 class MyOtherBloc extends Bloc {
-  static final String key = 'MyOtherBloc-uid';
 
   @override
   dispose() {

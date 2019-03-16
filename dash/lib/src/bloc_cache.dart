@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'bloc.dart';
 
+/// Responsible to provide the right bloc class when requested.
 class BlocCache {
   HashMap<String, Bloc> blocs = HashMap<String, Bloc>();
 
@@ -13,6 +14,7 @@ class BlocCache {
 
   BlocCache._internal();
 
+  /// Provide the bloc class cached with [blocKey] otherwise instantiates with [instance].
   static Bloc getBlocInstance(String blocKey, Function instance) {
     var bloc = BlocCache._singleton.blocs[blocKey];
 
@@ -26,26 +28,9 @@ class BlocCache {
     return bloc;
   }
 
-  static disposeAllAndKeep(List<String> blocKeys) async {
-    BlocCache._singleton.blocs.forEach((key, bloc) {
-      if (!blocKeys.contains(key)) bloc.dispose();
-    });
-
-    BlocCache._singleton.blocs
-        .removeWhere((key, bloc) => !blocKeys.contains(key));
-  }
-
   static dispose(String blocKey) async {
     BlocCache._singleton.blocs[blocKey]?.dispose();
 
     BlocCache._singleton.blocs.removeWhere((key, bloc) => blocKey == key);
-  }
-
-  static disposeAll() async {
-    BlocCache._singleton.blocs.forEach((key, bloc) {
-      bloc.dispose();
-    });
-
-    BlocCache._singleton.blocs.clear();
   }
 }
