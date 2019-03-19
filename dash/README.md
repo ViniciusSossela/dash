@@ -43,7 +43,7 @@ abstract class Provider {}
 ```
 
 
-2 - Extends all your bloc class from `Bloc`. It will allow you to override `disposable` and `dispose` method.
+2 - Extends all your bloc class from `Bloc`. It will allow you to override `dispose` method.
 
 **IMPORTANT: All bloc class must has an `instance()` function that returns the instance of the bloc class as bellow.**
 

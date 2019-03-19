@@ -12,37 +12,37 @@ void main() {
     expect(cache1, cache2);
   });
 
-  test('BlocSampleDisposable should not be null', () {
-    BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        'BlocSampleDisposable', () => BlocSampleDisposable.instance());
+  test('BlocSample should not be null', () {
+    BlocSample blocSample = BlocCache.getBlocInstance(
+        'BlocSample', () => BlocSample.instance());
 
-    expect(blocSampleDisposable != null, true);
+    expect(blocSample != null, true);
   });
 
-  test('BlocSampleDisposable should be the same', () {
-    BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        'BlocSampleDisposable', () => BlocSampleDisposable.instance());
+  test('BlocSample should be the same', () {
+    BlocSample blocSample = BlocCache.getBlocInstance(
+        'BlocSample', () => BlocSample.instance());
 
-    BlocSampleDisposable blocSampleDisposable2 = BlocCache.getBlocInstance(
-        'BlocSampleDisposable', () => BlocSampleDisposable.instance());
+    BlocSample blocSample2 = BlocCache.getBlocInstance(
+        'BlocSample', () => BlocSample.instance());
 
-    expect(blocSampleDisposable, blocSampleDisposable2);
+    expect(blocSample, blocSample2);
   });
 
-  test('BlocSampleDisposable should be disposed', () {
-    BlocSampleDisposable blocSampleDisposable = BlocCache.getBlocInstance(
-        'BlocSampleDisposable', () => BlocSampleDisposable.instance());
+  test('BlocSample should be disposed', () {
+    BlocSample blocSample = BlocCache.getBlocInstance(
+        'BlocSample', () => BlocSample.instance());
 
-    BlocCache.dispose('BlocSampleDisposable');
+    BlocCache.dispose('BlocSample');
 
-    expect(blocSampleDisposable.test, null);
+    expect(blocSample.test, null);
   });
 }
 
-class BlocSampleDisposable extends Bloc {
-  String test = 'BlocSampleDisposable';
+class BlocSample extends Bloc {
+  String test = 'BlocSample';
 
-  static BlocSampleDisposable instance() => BlocSampleDisposable();
+  static BlocSample instance() => BlocSample();
 
   @override
   dispose() {

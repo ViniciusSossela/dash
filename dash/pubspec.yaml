@@ -1,6 +1,6 @@
 name: dash
 description: Dash library is responsible to offer a BlocProvider pattern that cares about dispose all the streams of blocs.
-version: 0.5.0
+version: 0.5.2
 author: Vinícius Sossella <viniciussossella@gmail.com>
 homepage: https://github.com/ViniciusSossela/dash
 

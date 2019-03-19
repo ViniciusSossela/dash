@@ -1,28 +1,26 @@
 import 'package:dash/dash.dart';
 
-class Main {
-  void anyMethod() {
-    BlocSample _bloc = Provider.of<BlocSample>();
-  }
-}
+import 'provider.dart';
 
-class Provider {
-  static T of<T extends Bloc>([List<String> keepBlocs = const []]) {
-    switch (T) {
-      case BlocSample:
-        {
-          return BlocCache.getBlocInstance(
-              'BlocSample', () => BlocSample.instance());
-        }
-    }
-    return null;
+class Main {
+  init() {
+    BlocSample _bloc = Provider.of<BlocSample>();
+    _bloc.load();
+  }
+
+  dispose() {
+    Provider.dispose<BlocSample>();
   }
 }
 
 class BlocSample extends Bloc {
   String test = 'BlocSample';
-  
+
   static BlocSample instance() => BlocSample();
+
+  load() {
+    //load initial data
+  }
 
   @override
   dispose() {

@@ -1,3 +1,7 @@
-## [0.4.0] - February second 2019.
+## [0.5.2] - March/2019.
 
-* Changed the way of how blocs are disposed
+* Updated dash version
+
+## [0.5.1] - March/2019.
+
+* Improves the code generation
