@@ -16,11 +16,15 @@ const TypeChecker _blocProviderTypeChecker =
 bool _isBlocProviderClass(ClassElement classBlocProvider) =>
     _blocProviderTypeChecker.hasAnnotationOfExact(classBlocProvider);
 
+/// Responsible to generate the Provider class that will expose de of() and dispose() method for blocs.
 class BlocProviderGenerator extends Generator {
   const BlocProviderGenerator();
 
   @override
   FutureOr<String> generate(LibraryReader library, BuildStep buildStep) {
+
+    // An bloc provider is an abstract class where all abstract methods are
+    // annotated with BlocProvider.register.
     final blocProviders = library.classes
         .where((c) => c.isAbstract && _isBlocProviderClass(c))
         .toList();

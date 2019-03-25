@@ -2,7 +2,7 @@ import 'package:dash/dash.dart';
 
 import 'dash_example.dart';
 
-/// This is automaticly generated...
+/// This is going to be automaticly generated...
 class Provider {
   static T of<T extends Bloc>() {
     switch (T) {

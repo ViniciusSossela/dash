@@ -91,11 +91,17 @@ For flutter is:
 4 - Finally you can get your bloc class instance from wherever you want, example:
 
 ```dart
-@override
+  @override
   Widget build(BuildContext context) {
     final _bloc = $Provider.of<MyOtherBloc>();
 
     return Container();
+  }
+
+  @override
+  void dispose() {
+    $Provider.dispose<MyOtherBloc>();
+    super.dispose();
   }
 ```
 
