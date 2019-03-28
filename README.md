@@ -2,7 +2,7 @@
 
 ![Logo](https://raw.githubusercontent.com/ViniciusSossela/dash/master/dash/img/logo_dash.png)
 
-Dash is a simple but efficient library that provides BloCs class without headaches.
+Dash is a simple but efficient library that helps provide BloCs without headaches.
 
 **IMPORTANT: Dart2 is required to use this package.**
 
@@ -27,7 +27,7 @@ dev_dependencies:
 
 ## Usage
 
-1 - Create a provider class that is going to gathering all BlocProvider annotation:
+1 - Create a provider class that will gather BlocProvider annotation:
 
 **IMPORTANT: Do not forget to add: part 'provider.g.dart';.**
 
@@ -43,9 +43,9 @@ abstract class Provider {}
 ```
 
 
-2 - Extends all your bloc class from `Bloc`. It will allow you to override `dispose` method.
+2 - Extend BLoCs from `Bloc`. It will allow you to override `dispose` method.
 
-**IMPORTANT: All bloc class must has an `instance()` function that returns the instance of the bloc class as bellow.**
+**IMPORTANT: All blocs must have an `instance()` function that returns the instance of the bloc as below.**
 
 
 ```dart
@@ -74,11 +74,11 @@ class MyOtherBloc extends Bloc {
 
 3 - Run build_runner, it will generate the `provider.g.dart` class that you added as part on your provider class.
 
-On project directory run on terminal: 
+On project directory run in terminal: 
 
 `pub run build_runner build`
 
-For flutter is:
+For flutter:
 
 `flutter packages pub run build_runner build`
 
@@ -88,7 +88,7 @@ For flutter is:
 `flutter packages pub run build_runner build --delete-conflicting-outputs`
 
 
-4 - Finally you can get your bloc class instance from wherever you want, example:
+4 - Finally you can get your BLoC instance from anywhere, for example:
 
 ```dart
   @override
