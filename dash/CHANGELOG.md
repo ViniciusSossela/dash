@@ -1,3 +1,7 @@
+# [0.5.5] - November/2019
+
+* Removed test specific version dependency and used from flutter_test sdk
+
 # [0.5.4] - November/2019
 
 * Updated dependency packages versions

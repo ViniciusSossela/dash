@@ -1,9 +1,6 @@
-// import 'package:flutter_test/flutter_test.dart';
-
-// import 'package:bloc_provider/bloc_provider.dart';
 
 import 'package:dash/dash.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('cache should be the same', () {
