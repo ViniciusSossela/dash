@@ -2,7 +2,7 @@
 
 ![Logo](https://raw.githubusercontent.com/ViniciusSossela/dash/master/dash/img/logo_dash.png)
 
-Dash is a simple but efficient library that provides BloCs class without headaches.
+Dash is a simple but efficient library that provides and dispose BloCs class without headaches.
 
 **IMPORTANT: Dart2 is required to use this package.**
 

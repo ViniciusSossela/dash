@@ -1,3 +1,7 @@
+# [0.5.4] - November/2019
+
+* Updated dependency packages versions
+
 # [0.5.3] - March/2019
 
 * Added LICENSE
