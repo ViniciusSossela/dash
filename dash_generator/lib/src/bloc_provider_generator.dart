@@ -22,7 +22,6 @@ class BlocProviderGenerator extends Generator {
 
   @override
   FutureOr<String> generate(LibraryReader library, BuildStep buildStep) {
-
     // An bloc provider is an abstract class where all abstract methods are
     // annotated with BlocProvider.register.
     final blocProviders = library.classes

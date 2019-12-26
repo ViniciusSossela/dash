@@ -1,3 +1,7 @@
+# [0.5.6] - Dezember/2019
+
+* Removed analyzer and changed to sample directory
+
 # [0.5.5] - November/2019
 
 * Removed test specific version dependency and used from flutter_test sdk
