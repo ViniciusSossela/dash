@@ -1,3 +1,7 @@
+# [0.5.7] - February/2019
+
+* Added example code
+
 # [0.5.6] - Dezember/2019
 
 * Removed analyzer and changed to sample directory

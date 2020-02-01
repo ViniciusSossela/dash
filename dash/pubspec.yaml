@@ -1,6 +1,6 @@
 name: dash
 description: Dash library is responsible to offer a service locator pattern that cares about provide and dispose blocs.
-version: 0.5.6
+version: 0.5.7
 author: Vinicius Sossella <viniciussossella@gmail.com>
 homepage: https://github.com/ViniciusSossela/dash
 
