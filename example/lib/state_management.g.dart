@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'provider.dart';
+part of 'state_management.dart';
 
 // **************************************************************************
 // BlocProviderGenerator
@@ -9,13 +9,10 @@ part of 'provider.dart';
 class $Provider extends Provider {
   static T of<T extends Bloc>() {
     switch (T) {
-      case MyBloc1:
+      case MyHomeBloc:
         {
-          return BlocCache.getBlocInstance("MyBloc1", () => MyBloc1.instance());
-        }
-      case MyBloc2:
-        {
-          return BlocCache.getBlocInstance("MyBloc2", () => MyBloc2.instance());
+          return BlocCache.getBlocInstance(
+              "MyHomeBloc", () => MyHomeBloc.instance());
         }
     }
     return null;
@@ -23,14 +20,9 @@ class $Provider extends Provider {
 
   static void dispose<T extends Bloc>() {
     switch (T) {
-      case MyBloc1:
+      case MyHomeBloc:
         {
-          BlocCache.dispose("MyBloc1");
-          break;
-        }
-      case MyBloc2:
-        {
-          BlocCache.dispose("MyBloc2");
+          BlocCache.dispose("MyHomeBloc");
           break;
         }
     }

@@ -1,20 +1,35 @@
-import 'package:example/mybloc2.dart';
-import 'package:example/provider.dart';
+import 'package:dash/dash.dart';
+import 'package:example/state_management.dart';
 import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Dash Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter and Dash Home Page'),
     );
+  }
+}
+
+class MyHomeBloc extends Bloc {
+  static MyHomeBloc instance() => MyHomeBloc();
+
+  final _counter = BehaviorSubject<int>.seeded(0);
+  Stream<int> get counter => _counter.stream;
+  Function(int) get updateCounter => _counter.sink.add;
+
+  increment() => updateCounter(_counter.value + 1);
+
+  @override
+  dispose() {
+    _counter.close();
   }
 }
 
@@ -28,24 +43,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  void initState() {
-    MyBloc2 _bloc = $Provider.of<MyBloc2>();
-    _bloc.loadInitialData();
-    super.initState();
-  }
+  final _bloc = $Provider.of<MyHomeBloc>();
 
   @override
   void dispose() {
-    $Provider.dispose<MyBloc2>();
+    $Provider.dispose<MyHomeBloc>();
     super.dispose();
   }
 
@@ -62,18 +64,23 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            StreamBuilder<int>(
+              stream: _bloc.counter,
+              builder: (context, snap) => snap.hasData
+                  ? Text(
+                      '${snap.data}',
+                      style: Theme.of(context).textTheme.display1,
+                    )
+                  : Text('loading...'),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _bloc.increment,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
