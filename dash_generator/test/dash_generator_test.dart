@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../sample/bloc_example.dart';
-import '../sample/provider.dart';
+import '../example/bloc_example.dart';
+import '../example/provider.dart';
 
 void main() {
   test('should get bloc instance', () {

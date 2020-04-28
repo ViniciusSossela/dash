@@ -1,7 +1,7 @@
 name: dash_generator
 author: Vinicius Sossella <viniciussossella@gmail.com>
 description: Dash Generator library is responsible to generate all the boilerplate code needed by dash library.
-version: 0.5.6
+version: 0.5.7
 homepage: https://github.com/ViniciusSossela/dash
 
 environment:

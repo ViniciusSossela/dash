@@ -11,7 +11,7 @@ import 'package:dash/dash.dart';
 import 'package:source_gen/source_gen.dart';
 
 const TypeChecker _blocProviderTypeChecker =
-    const TypeChecker.fromRuntime(BlocProvider);
+    TypeChecker.fromRuntime(BlocProvider);
 
 bool _isBlocProviderClass(ClassElement classBlocProvider) =>
     _blocProviderTypeChecker.hasAnnotationOfExact(classBlocProvider);
@@ -79,7 +79,7 @@ class BlocProviderGenerator extends Generator {
     final DartType type = registerObject.getField('type').toTypeValue();
 
     return Code(
-        'case $type: { return BlocCache.getBlocInstance("${type.name}", () => $type.instance()); }');
+        'case $type: { return BlocCache.getBlocInstance(\'${type.name}\', () => $type.instance()) as T; }');
   }
 
   Method _getDisposeMethod(ClassElement blocProvider) {
@@ -109,6 +109,6 @@ class BlocProviderGenerator extends Generator {
 
     final DartType type = registerObject.getField('type').toTypeValue();
 
-    return Code('case $type: { BlocCache.dispose("${type.name}"); break;}');
+    return Code('case $type: { BlocCache.dispose(\'${type.name}\'); break;}');
   }
 }

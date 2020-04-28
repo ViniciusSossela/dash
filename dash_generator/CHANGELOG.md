@@ -1,3 +1,7 @@
+# [0.5.7] - April/2020
+
+* Added cast type
+
 # [0.5.6] - Dezember/2019
 
 * Removed analyzer and changed to sample directory
