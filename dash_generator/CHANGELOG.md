@@ -1,3 +1,7 @@
+# [0.5.8] - October/2020
+
+* Changes to generate 'switch/case' properly
+
 # [0.5.7] - April/2020
 
 * Added cast type

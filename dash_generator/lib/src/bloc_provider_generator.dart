@@ -79,7 +79,7 @@ class BlocProviderGenerator extends Generator {
     final DartType type = registerObject.getField('type').toTypeValue();
 
     return Code(
-        'case $type: { return BlocCache.getBlocInstance(\'${type.name}\', () => $type.instance()) as T; }');
+        'case ${type.displayName}: { return BlocCache.getBlocInstance(\'${type.name}\', () => ${type.displayName}.instance()) as T; }');
   }
 
   Method _getDisposeMethod(ClassElement blocProvider) {
@@ -109,6 +109,7 @@ class BlocProviderGenerator extends Generator {
 
     final DartType type = registerObject.getField('type').toTypeValue();
 
-    return Code('case $type: { BlocCache.dispose(\'${type.name}\'); break;}');
+    return Code(
+        'case ${type.displayName}: { BlocCache.dispose(\'${type.name}\'); break;}');
   }
 }
