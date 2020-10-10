@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  dash: ^0.5.6
+  dash: ^0.5.7
   rxdart: ^0.22.1+1
   
   # The following adds the Cupertino Icons font to your application.
@@ -32,7 +32,9 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^1.6.6
-  dash_generator: ^0.5.6
+  dash_generator: ^0.5.8
+  # dash_generator:
+  #   path: ../dash_generator/
 
 
 # For information on the generic Dart part of this file, see the
