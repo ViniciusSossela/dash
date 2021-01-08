@@ -1,4 +1,3 @@
-
 import 'package:dash/dash.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -10,29 +9,29 @@ void main() {
   });
 
   test('BlocSample should not be null', () {
-    BlocSample blocSample = BlocCache.getBlocInstance(
-        'BlocSample', () => BlocSample.instance());
-
-    expect(blocSample != null, true);
+    final blocSample =
+        BlocCache.getBlocInstance('BlocSample', () => BlocSample.instance());
+    expect(blocSample is BlocSample, true);
   });
 
   test('BlocSample should be the same', () {
-    BlocSample blocSample = BlocCache.getBlocInstance(
-        'BlocSample', () => BlocSample.instance());
+    final blocSample =
+        BlocCache.getBlocInstance('BlocSample', () => BlocSample.instance());
 
-    BlocSample blocSample2 = BlocCache.getBlocInstance(
-        'BlocSample', () => BlocSample.instance());
+    final blocSample2 =
+        BlocCache.getBlocInstance('BlocSample', () => BlocSample.instance());
 
     expect(blocSample, blocSample2);
   });
 
   test('BlocSample should be disposed', () {
-    BlocSample blocSample = BlocCache.getBlocInstance(
-        'BlocSample', () => BlocSample.instance());
+    final blocSample =
+        BlocCache.getBlocInstance('BlocSample', () => BlocSample.instance())
+            as BlocSample;
 
     BlocCache.dispose('BlocSample');
 
-    expect(blocSample.test, null);
+    expect(blocSample.test, '');
   });
 }
 
@@ -42,7 +41,7 @@ class BlocSample extends Bloc {
   static BlocSample instance() => BlocSample();
 
   @override
-  dispose() {
-    test = null;
+  void dispose() {
+    test = '';
   }
 }

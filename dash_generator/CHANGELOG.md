@@ -1,3 +1,7 @@
+# [1.0.0-nullsafety.0] - Jan/2021
+
+* Added support to null safety
+
 # [0.5.8] - October/2020
 
 * Changes to generate 'switch/case' properly

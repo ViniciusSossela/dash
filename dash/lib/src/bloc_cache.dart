@@ -15,7 +15,7 @@ class BlocCache {
   BlocCache._internal();
 
   /// Provide the bloc class cached with [blocKey] otherwise instantiates with [instance].
-  static Bloc getBlocInstance(String blocKey, Function instance) {
+  static Bloc getBlocInstance(String blocKey, Bloc Function() instance) {
     var bloc = BlocCache._cache.blocs[blocKey];
 
     if (bloc != null) {
@@ -28,7 +28,7 @@ class BlocCache {
     return bloc;
   }
 
-  static dispose(String blocKey) async {
+  static void dispose(String blocKey) async {
     BlocCache._cache.blocs[blocKey]?.dispose();
 
     BlocCache._cache.blocs.removeWhere((key, bloc) => blocKey == key);
