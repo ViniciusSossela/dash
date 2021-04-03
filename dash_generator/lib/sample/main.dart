@@ -4,5 +4,5 @@ import 'provider.dart';
 class Main {
   BlocExample provideBlocExample() => $Provider.of<BlocExample>();
 
-  disposeBlocExample() => $Provider.dispose<BlocExample>();
+  void disposeBlocExample() => $Provider.dispose<BlocExample>();
 }

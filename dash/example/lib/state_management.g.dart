@@ -12,17 +12,17 @@ class $Provider extends Provider {
       case MyHomeBloc:
         {
           return BlocCache.getBlocInstance(
-              "MyHomeBloc", () => MyHomeBloc.instance());
+              'MyHomeBloc', () => MyHomeBloc.instance()) as T;
         }
     }
-    return null;
+    throw Exception('Bloc not found');
   }
 
   static void dispose<T extends Bloc>() {
     switch (T) {
       case MyHomeBloc:
         {
-          BlocCache.dispose("MyHomeBloc");
+          BlocCache.dispose('MyHomeBloc');
           break;
         }
     }

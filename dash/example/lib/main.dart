@@ -25,16 +25,16 @@ class MyHomeBloc extends Bloc {
   Stream<int> get counter => _counter.stream;
   Function(int) get updateCounter => _counter.sink.add;
 
-  increment() => updateCounter(_counter.value + 1);
+  void increment() => updateCounter((_counter.value ?? 0) + 1);
 
   @override
-  dispose() {
+  void dispose() {
     _counter.close();
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({required this.title});
 
   final String title;
 

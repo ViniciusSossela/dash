@@ -15,7 +15,7 @@ class $Provider extends Provider {
               'MyHomeBloc', () => MyHomeBloc.instance()) as T;
         }
     }
-    return null;
+    throw Exception('Bloc not found');
   }
 
   static void dispose<T extends Bloc>() {

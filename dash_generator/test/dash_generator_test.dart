@@ -1,13 +1,12 @@
+import 'package:dash_generator/sample/bloc_example.dart';
+import 'package:dash_generator/sample/provider.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import '../example/bloc_example.dart';
-import '../example/provider.dart';
 
 void main() {
   test('should get bloc instance', () {
     final bloc = $Provider.of<BlocExample>();
 
-    expect(true, bloc != null);
+    expect(bloc is BlocExample, true);
   });
 
   test('should bloc instance be the same', () {
@@ -29,6 +28,6 @@ void main() {
     final bloc = $Provider.of<BlocExample>();
     $Provider.dispose<BlocExample>();
 
-    expect(null, bloc.someValue);
+    expect('', bloc.someValue);
   });
 }

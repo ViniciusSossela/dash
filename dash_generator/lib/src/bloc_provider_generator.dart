@@ -1,8 +1,6 @@
 import 'dart:async';
 
-import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/type.dart';
 import 'package:build/src/builder/build_step.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
@@ -28,15 +26,13 @@ class BlocProviderGenerator extends Generator {
         .where((c) => c.isAbstract && _isBlocProviderClass(c))
         .toList();
 
-    if (blocProviders.isEmpty) {
-      return null;
-    }
+    if (blocProviders.isEmpty) return '';
 
     final file = Library((lb) => lb
       ..body.addAll(blocProviders
           .map((i) => _generateBlocProviderClass(i, library, buildStep))));
 
-    final DartEmitter emitter = DartEmitter(Allocator());
+    final emitter = DartEmitter(Allocator());
     return DartFormatter().format('${file.accept(emitter)}');
   }
 
@@ -61,7 +57,7 @@ class BlocProviderGenerator extends Generator {
         ..statements.add(Code('switch (T) {'))
         ..statements.addAll(_generateSwitchCases(blocProvider))
         ..statements.add(Code('}'))
-        ..statements.add(Code('return null;'))));
+        ..statements.add(Code('throw Exception(\'Bloc not found\');'))));
   }
 
   List<Code> _generateSwitchCases(ClassElement blocProvider) {
@@ -73,13 +69,13 @@ class BlocProviderGenerator extends Generator {
   }
 
   Code _generateCases(AnnotatedElement annotatedMethod) {
-    final ConstantReader annotation = annotatedMethod.annotation;
-    final DartObject registerObject = annotation.objectValue;
+    final annotation = annotatedMethod.annotation;
+    final registerObject = annotation.objectValue;
 
-    final DartType type = registerObject.getField('type').toTypeValue();
+    final type = registerObject.getField('type')?.toTypeValue();
 
     return Code(
-        'case ${type.displayName}: { return BlocCache.getBlocInstance(\'${type.name}\', () => ${type.displayName}.instance()) as T; }');
+        'case ${type?.getDisplayString(withNullability: false)}: { return BlocCache.getBlocInstance(\'${type?.getDisplayString(withNullability: false)}\', () => ${type?.getDisplayString(withNullability: false)}.instance()) as T; }');
   }
 
   Method _getDisposeMethod(ClassElement blocProvider) {
@@ -104,12 +100,12 @@ class BlocProviderGenerator extends Generator {
   }
 
   Code _generateCasesOfDispose(AnnotatedElement annotatedMethod) {
-    final ConstantReader annotation = annotatedMethod.annotation;
-    final DartObject registerObject = annotation.objectValue;
+    final annotation = annotatedMethod.annotation;
+    final registerObject = annotation.objectValue;
 
-    final DartType type = registerObject.getField('type').toTypeValue();
+    final type = registerObject.getField('type')?.toTypeValue();
 
     return Code(
-        'case ${type.displayName}: { BlocCache.dispose(\'${type.name}\'); break;}');
+        'case ${type?.getDisplayString(withNullability: false)}: { BlocCache.dispose(\'${type?.getDisplayString(withNullability: false)}\'); break;}');
   }
 }

@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter and Dash Home Page'),
+      home: MyHomePage('Flutter and Dash Home Page'),
     );
   }
 }
@@ -25,7 +25,7 @@ class MyHomeBloc extends Bloc {
   Stream<int> get counter => _counter.stream;
   Function(int) get updateCounter => _counter.sink.add;
 
-  increment() => updateCounter(_counter.value + 1);
+  increment() => updateCounter((_counter.value ?? 0) + 1);
 
   @override
   dispose() {
@@ -34,7 +34,7 @@ class MyHomeBloc extends Bloc {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage(this.title);
 
   final String title;
 
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               builder: (context, snap) => snap.hasData
                   ? Text(
                       '${snap.data}',
-                      style: Theme.of(context).textTheme.display1,
+                      style: Theme.of(context).textTheme.bodyText1,
                     )
                   : Text('loading...'),
             ),

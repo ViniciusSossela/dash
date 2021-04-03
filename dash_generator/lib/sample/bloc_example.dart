@@ -3,9 +3,9 @@ import 'package:dash/dash.dart';
 class BlocExample extends Bloc {
   String someValue = 'test';
   @override
-  dispose() {
+  void dispose() {
     //dispose all streams
-    someValue = null;
+    someValue = '';
   }
 
   static Bloc instance() => BlocExample();
