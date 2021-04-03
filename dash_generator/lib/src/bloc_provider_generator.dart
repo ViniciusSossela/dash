@@ -72,10 +72,10 @@ class BlocProviderGenerator extends Generator {
     final annotation = annotatedMethod.annotation;
     final registerObject = annotation.objectValue;
 
-    final type = registerObject.getField('type').toTypeValue();
+    final type = registerObject.getField('type')?.toTypeValue();
 
     return Code(
-        'case ${type.getDisplayString(withNullability: false)}: { return BlocCache.getBlocInstance(\'${type.getDisplayString(withNullability: false)}\', () => ${type.getDisplayString(withNullability: false)}.instance()) as T; }');
+        'case ${type?.getDisplayString(withNullability: false)}: { return BlocCache.getBlocInstance(\'${type?.getDisplayString(withNullability: false)}\', () => ${type?.getDisplayString(withNullability: false)}.instance()) as T; }');
   }
 
   Method _getDisposeMethod(ClassElement blocProvider) {
@@ -103,9 +103,9 @@ class BlocProviderGenerator extends Generator {
     final annotation = annotatedMethod.annotation;
     final registerObject = annotation.objectValue;
 
-    final type = registerObject.getField('type').toTypeValue();
+    final type = registerObject.getField('type')?.toTypeValue();
 
     return Code(
-        'case ${type.getDisplayString(withNullability: false)}: { BlocCache.dispose(\'${type.getDisplayString(withNullability: false)}\'); break;}');
+        'case ${type?.getDisplayString(withNullability: false)}: { BlocCache.dispose(\'${type?.getDisplayString(withNullability: false)}\'); break;}');
   }
 }
