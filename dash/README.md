@@ -20,7 +20,7 @@ dependencies:
 
 ```
 dev_dependencies:
-  build_runner: ^1.10.12
+  build_runner: ^2.0.3
   dash_generator: ^latest_version
 ```
 

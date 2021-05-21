@@ -32,7 +32,7 @@ class BlocProviderGenerator extends Generator {
       ..body.addAll(blocProviders
           .map((i) => _generateBlocProviderClass(i, library, buildStep))));
 
-    final emitter = DartEmitter(Allocator());
+    final emitter = DartEmitter();
     return DartFormatter().format('${file.accept(emitter)}');
   }
 
