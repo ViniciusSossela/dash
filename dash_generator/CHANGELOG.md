@@ -1,3 +1,7 @@
+# [1.0.2] - May/2021
+
+* Upgraded packages dependency
+
 # [1.0.1] - Apr/2021
 
 * Upgraded packages dependency

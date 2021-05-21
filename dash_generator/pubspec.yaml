@@ -1,17 +1,17 @@
 name: dash_generator
 description: Dash Generator library is responsible to generate all the boilerplate code needed by dash library.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/ViniciusSossela/dash
 
 environment:
-  sdk: ">=2.12.0-0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   build: ^2.0.1
   source_gen: ^1.0.0
   analyzer: ^1.5.0
   code_builder: ^4.0.0
-  dash: ^1.0.1
+  dash: ^1.0.2
   # dash:
   #   path: ../dash/
   built_collection: ^5.0.0
