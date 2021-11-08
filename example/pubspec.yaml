@@ -36,7 +36,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.0.3
-  dash_generator: ^1.0.3
+  dash_generator: ^1.0.4
   # dash_generator:
   #   path: ../dash_generator/
 

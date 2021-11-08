@@ -1,3 +1,7 @@
+# [1.0.4] - Nov/2021
+
+* Override methods
+
 # [1.0.3] - Nov/2021
 
 * Improves on provider generation to be used with DI packages

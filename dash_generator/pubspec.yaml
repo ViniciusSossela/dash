@@ -1,6 +1,6 @@
 name: dash_generator
 description: Dash Generator library is responsible to generate all the boilerplate code needed by dash library.
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/ViniciusSossela/dash
 
 environment:

@@ -7,6 +7,7 @@ part of 'state_management.dart';
 // **************************************************************************
 
 class $Provider extends Provider {
+  @override
   T of<T extends Bloc>() {
     switch (T) {
       case MyHomeBloc:
@@ -18,6 +19,7 @@ class $Provider extends Provider {
     throw Exception('Bloc not found');
   }
 
+  @override
   void dispose<T extends Bloc>() {
     switch (T) {
       case MyHomeBloc:

@@ -52,6 +52,7 @@ class BlocProviderGenerator extends Generator {
       ..name = 'of<T extends Bloc>'
       ..returns = Reference('T')
       ..optionalParameters = paramters
+      ..annotations.add(refer('override'))
       ..body = Block((bb) => bb
         ..statements.add(Code('switch (T) {'))
         ..statements.addAll(_generateSwitchCases(blocProvider))
@@ -83,6 +84,7 @@ class BlocProviderGenerator extends Generator {
     return Method.returnsVoid((method) => method
       ..name = 'dispose<T extends Bloc>'
       ..optionalParameters = paramters
+      ..annotations.add(refer('override'))
       ..body = Block((bb) => bb
         ..statements.add(Code('switch (T) {'))
         ..statements.addAll(_generateSwitchCasesOfDispose(blocProvider))
