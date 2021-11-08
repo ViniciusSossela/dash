@@ -1,3 +1,7 @@
+# [1.0.3] - Nov/2021
+
+* Improves on provider generation to be used with DI packages
+
 # [1.0.2] - May/2021
 
 * Upgraded packages dependency
@@ -37,7 +41,6 @@
 ## [0.5.2] - March/2019
 
 * Updated documentation
-
 
 ## [0.5.1] - March/2019
 

@@ -50,7 +50,6 @@ class BlocProviderGenerator extends Generator {
 
     return Method((method) => method
       ..name = 'of<T extends Bloc>'
-      ..static = true
       ..returns = Reference('T')
       ..optionalParameters = paramters
       ..body = Block((bb) => bb
@@ -83,7 +82,6 @@ class BlocProviderGenerator extends Generator {
 
     return Method.returnsVoid((method) => method
       ..name = 'dispose<T extends Bloc>'
-      ..static = true
       ..optionalParameters = paramters
       ..body = Block((bb) => bb
         ..statements.add(Code('switch (T) {'))

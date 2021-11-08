@@ -43,11 +43,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _bloc = $Provider.of<MyHomeBloc>();
+  final _bloc = $Provider().of<MyHomeBloc>();
 
   @override
   void dispose() {
-    $Provider.dispose<MyHomeBloc>();
+    $Provider().dispose<MyHomeBloc>();
     super.dispose();
   }
 

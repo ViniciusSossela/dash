@@ -22,7 +22,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  dash: ^1.0.2
+  dash: ^1.0.3
   # dash:
   #   path: ../../dash/
   rxdart: ^0.26.0
@@ -36,7 +36,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.0.3
-  dash_generator: ^1.0.2
+  dash_generator: ^1.0.3
   # dash_generator:
   #   path: ../../dash_generator/
 

@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               builder: (context, snap) => snap.hasData
                   ? Text(
                       '${snap.data}',
-                      style: Theme.of(context).textTheme.display1,
+                      style: Theme.of(context).textTheme.headline6,
                     )
                   : Text('loading...'),
             ),
