@@ -1,3 +1,8 @@
+# [1.0.5] - Aug/2022
+
+* Added latest dash package version
+* upgrade analyzer package
+
 # [1.0.4] - Nov/2021
 
 * Override methods
