@@ -6,7 +6,7 @@ void main() {
   test('should get bloc instance', () {
     final bloc = $Provider.of<BlocExample>();
 
-    expect(bloc is BlocExample, true);
+    expect(bloc, isA<BlocExample>());
   });
 
   test('should bloc instance be the same', () {

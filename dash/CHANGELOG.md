@@ -1,3 +1,7 @@
+# [1.0.6] - May/2025
+
+- upgrade packages
+
 # [1.0.5] - Mar/2023
 
 - eliminated old dependency

@@ -1,10 +1,10 @@
 name: dash
 description: Dash library is responsible to offer a service locator pattern that cares about provide and dispose blocs.
-version: 1.0.5
+version: 1.0.6
 homepage: https://github.com/ViniciusSossela/dash
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: "^3.0.0"
 
 dependencies:
   flutter:
