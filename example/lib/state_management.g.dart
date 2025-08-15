@@ -13,7 +13,9 @@ class $Provider extends Provider {
       case MyHomeBloc:
         {
           return BlocCache.getBlocInstance(
-              'MyHomeBloc', () => MyHomeBloc.instance()) as T;
+            'MyHomeBloc',
+            () => MyHomeBloc.instance(),
+          ) as T;
         }
     }
     throw Exception('Bloc not found');
