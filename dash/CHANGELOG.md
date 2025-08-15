@@ -1,3 +1,7 @@
+# [1.0.7] - Ago/2025
+
+- packages upgrade for better support
+
 # [1.0.6] - May/2025
 
 - upgrade packages
