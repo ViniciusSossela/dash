@@ -1,3 +1,10 @@
+# [1.0.8] - Ago/2025
+
+- Added latest dash package version
+- upgrade build package
+- upgrade source_gen package
+- upgrade build_runner package
+
 # [1.0.7] - May/2025
 
 - Added latest dash package version

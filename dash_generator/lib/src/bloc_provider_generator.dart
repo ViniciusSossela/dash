@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/dart/element/element2.dart';
 import 'package:build/src/builder/build_step.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
@@ -9,9 +9,9 @@ import 'package:dash/dash.dart';
 import 'package:source_gen/source_gen.dart';
 
 const TypeChecker _blocProviderTypeChecker =
-    TypeChecker.fromRuntime(BlocProvider);
+    TypeChecker.typeNamed(BlocProvider);
 
-bool _isBlocProviderClass(ClassElement classBlocProvider) =>
+bool _isBlocProviderClass(ClassElement2 classBlocProvider) =>
     _blocProviderTypeChecker.hasAnnotationOfExact(classBlocProvider);
 
 /// Responsible to generate the Provider class that will expose de of() and dispose() method for blocs.
@@ -33,19 +33,20 @@ class BlocProviderGenerator extends Generator {
           .map((i) => _generateBlocProviderClass(i, library, buildStep))));
 
     final emitter = DartEmitter();
-    return DartFormatter().format('${file.accept(emitter)}');
+    return DartFormatter(languageVersion: DartFormatter.latestLanguageVersion)
+        .format('${file.accept(emitter)}');
   }
 
   Class _generateBlocProviderClass(
-      ClassElement blocProvider, LibraryReader library, BuildStep buildStep) {
+      ClassElement2 blocProvider, LibraryReader library, BuildStep buildStep) {
     return Class((cb) => cb
-      ..name = '\$${blocProvider.name}'
-      ..extend = refer(blocProvider.name)
+      ..name = '\$${blocProvider.displayName}'
+      ..extend = refer(blocProvider.displayName)
       ..methods.addAll(
           [_getOfMethod(blocProvider), _getDisposeMethod(blocProvider)]));
   }
 
-  Method _getOfMethod(ClassElement blocProvider) {
+  Method _getOfMethod(ClassElement2 blocProvider) {
     var paramters = ListBuilder<Parameter>();
 
     return Method((method) => method
@@ -60,7 +61,7 @@ class BlocProviderGenerator extends Generator {
         ..statements.add(Code('throw Exception(\'Bloc not found\');'))));
   }
 
-  List<Code> _generateSwitchCases(ClassElement blocProvider) {
+  List<Code> _generateSwitchCases(ClassElement2 blocProvider) {
     return _blocProviderTypeChecker
         .annotationsOfExact(blocProvider)
         .map((a) =>
@@ -75,10 +76,10 @@ class BlocProviderGenerator extends Generator {
     final type = registerObject.getField('type')?.toTypeValue();
 
     return Code(
-        'case ${type?.getDisplayString(withNullability: false)}: { return BlocCache.getBlocInstance(\'${type?.getDisplayString(withNullability: false)}\', () => ${type?.getDisplayString(withNullability: false)}.instance()) as T; }');
+        'case ${type?.getDisplayString()}: { return BlocCache.getBlocInstance(\'${type?.getDisplayString()}\', () => ${type?.getDisplayString()}.instance()) as T; }');
   }
 
-  Method _getDisposeMethod(ClassElement blocProvider) {
+  Method _getDisposeMethod(ClassElement2 blocProvider) {
     var paramters = ListBuilder<Parameter>();
 
     return Method.returnsVoid((method) => method
@@ -91,7 +92,7 @@ class BlocProviderGenerator extends Generator {
         ..statements.add(Code('}'))));
   }
 
-  List<Code> _generateSwitchCasesOfDispose(ClassElement blocProvider) {
+  List<Code> _generateSwitchCasesOfDispose(ClassElement2 blocProvider) {
     return _blocProviderTypeChecker
         .annotationsOfExact(blocProvider)
         .map((a) => _generateCasesOfDispose(
@@ -106,6 +107,6 @@ class BlocProviderGenerator extends Generator {
     final type = registerObject.getField('type')?.toTypeValue();
 
     return Code(
-        'case ${type?.getDisplayString(withNullability: false)}: { BlocCache.dispose(\'${type?.getDisplayString(withNullability: false)}\'); break;}');
+        'case ${type?.getDisplayString()}: { BlocCache.dispose(\'${type?.getDisplayString()}\'); break;}');
   }
 }
