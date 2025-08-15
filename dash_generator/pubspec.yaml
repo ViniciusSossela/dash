@@ -13,7 +13,7 @@ dependencies:
   dash:
     path: ../dash/
   built_collection: ^5.0.0
-  analyzer: 7.5.5
+  analyzer: ^7.5.5
 
 dependency_overrides:
   meta: ^1.17.0
