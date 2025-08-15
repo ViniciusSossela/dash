@@ -10,8 +10,7 @@ dependencies:
   build: ^3.0.0
   source_gen: ^3.1.0
   code_builder: ^4.1.0
-  dash:
-    path: ../dash/
+  dash: ^1.0.7
   built_collection: ^5.0.0
   analyzer: ^7.5.5
 
