@@ -1,3 +1,9 @@
+# [1.0.9] - Jul/2026
+
+- fixed compatibility with analyzer 13.0.0 (element2 API removed)
+- fixed private build package import
+- upgraded dash dependency to 1.0.8
+
 # [1.0.8] - Ago/2025
 
 - Added latest dash package version

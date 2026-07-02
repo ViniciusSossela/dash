@@ -1,3 +1,7 @@
+# [1.0.8] - Jul/2026
+
+- version bump
+
 # [1.0.7] - Ago/2025
 
 - packages upgrade for better support
